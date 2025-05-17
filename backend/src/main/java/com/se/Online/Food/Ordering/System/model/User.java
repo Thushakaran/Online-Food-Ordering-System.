@@ -16,7 +16,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    private final USER_ROLE role = USER_ROLE.ROLE_CUSTOMER;
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private final List<Order> orders = new ArrayList<>();
@@ -24,6 +23,7 @@ public class User {
     private final List<RestaurantDto> favorites = new ArrayList<>();
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private final List<Address> address = new ArrayList<>();
+    private USER_ROLE role = USER_ROLE.ROLE_CUSTOMER;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -31,4 +31,5 @@ public class User {
     private String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
 }
