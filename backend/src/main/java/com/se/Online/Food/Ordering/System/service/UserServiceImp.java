@@ -4,7 +4,9 @@ import com.se.Online.Food.Ordering.System.config.JwtProvider;
 import com.se.Online.Food.Ordering.System.model.User;
 import com.se.Online.Food.Ordering.System.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImp implements UserService {
 
     @Autowired
